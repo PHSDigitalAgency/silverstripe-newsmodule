@@ -406,8 +406,14 @@ class NewsHolderPage_Controller extends Page_Controller
 	 */
 	private function setupFilter($params)
 	{
+		$urlSegmentFieldName = 'URLSegment';
+
+		if(class_exists('TranslatableDataObject')) {
+			$urlSegmentFieldName = singleton('News')->getLocalizedFieldName('URLSegment');
+		}
+		
 		$filter = array(
-			'URLSegment'           => Convert::raw2sql($params['ID']),
+			$urlSegmentFieldName   => Convert::raw2sql($params['ID']),
 			'Live'                 => 1,
 		);
 		if (Member::currentUserID() != 0 && !Permission::checkMember(Member::currentUserID(), array('VIEW_NEWS', 'CMS_ACCESS_NewsAdmin'))) {
