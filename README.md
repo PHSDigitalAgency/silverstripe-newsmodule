@@ -1,6 +1,9 @@
 # On to the news. From ModelAdmin. Silverstripe Newsmodule.
 =======================
 
+# TRANSLATABLE DATAOBJECT
+A fork to make it play well with translatable DataObject module (https://github.com/bummzack/translatable-dataobject).
+
 # WARNING
 
 This latest version has a different multiselectfield! If you have the old multiselectfield, manually delete it and then run composer update.
